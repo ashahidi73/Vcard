@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>علي محمد الشاحذي - مدير أول التواصل</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind for custom colors and font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'], // Confirmed Cairo font
+                    },
+                    colors: {
+                        'header-yellow': '#ffcc4e', // Yellow from the design
+                        'cta-black': '#000000',     // Black from the design
+                        'icon-color': '#4B5563',    // Dark gray for icons in white section
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Load Cairo font for better Arabic typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif; /* Ensure Cairo is applied */
+        }
+        .vcard-shadow {
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1); 
+        }
+        
+        /* Custom curve for the header section */
+        .header-curve-svg {
+            position: absolute;
+            bottom: -1px; /* To prevent gap with white section */
+            left: 0;
+            width: 100%;
+            height: 50px; 
+            z-index: 10; 
+            color: white; /* Color of the section below */
+        }
+
+        /* Ensure LTR text direction for contact info (for numbers/emails) */
+        .ltr-text {
+            direction: ltr;
+            text-align: left;
+            flex-grow: 1; 
+            font-size: 0.95rem; 
+        }
+        
+        /* Specific styling for the YOU logo box */
+        .you-logo-container {
+            width: 80px; 
+            height: 80px; 
+            margin: 0 auto; 
+            z-index: 20; 
+            position: relative; 
+        }
+        .you-logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+        
+        /* Style for contact links with icons and hover effect */
+        .icon-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background-color: #f9fafb; /* Light gray background for rows */
+            transition: background-color 0.15s;
+            text-decoration: none; 
+        }
+        .icon-link:hover {
+            background-color: #f3f4f6; /* Lighter on hover */
+        }
+        /* For RTL, icons are on the left of LTR text */
+        .icon-link > svg {
+            margin-left: 0.75rem; 
+            flex-shrink: 0; 
+        }
+
+        /* Alignment for company/location details (RTL compliant) */
+        .company-details-item {
+            text-align: right; 
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse; /* Text then icon in RTL */
+            justify-content: flex-start; 
+            line-height: 1.4; 
+        }
+        .company-details-item > svg {
+             margin-left: 0.5rem; /* Space between icon and text in RTL context */
+             margin-right: 0;
+             flex-shrink: 0;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen flex items-center justify-center p-4">
+
+    <!-- V-Card Container -->
+    <div id="vcard" class="bg-white vcard-shadow max-w-sm w-full mx-auto rounded-xl overflow-hidden">
+        
+        <!-- Header Section (Yellow Background with Curve) -->
+        <div class="bg-header-yellow text-gray-900 px-6 pt-8 pb-20 relative text-right">
+            <div class="flex items-start flex-row-reverse space-x-4">
+                
+                <!-- Profile Photo - NOW USING LOCAL FILE PATH -->
+                <div class="w-24 h-24 flex-shrink-0">
+                    <img src="my-photo.png"  
+                         alt="علي محمد الشاحذي" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/96x96/ffcc4e/000000?text=Photo+Error';"
+                         class="w-full h-full object-cover rounded-xl shadow-md border-2 border-white"/>
+                </div>
+                
+                <!-- Name and Title -->
+                <div class="flex-grow mt-0">
+                    <h1 class="text-2xl font-extrabold" id="vcard-name">علي محمد الشاحذي</h1>
+                    <p class="text-gray-800 text-base mt-1 leading-tight" id="vcard-title">مدير أول التواصل</p>
+                    <p class="text-gray-800 text-base leading-tight" id="vcard-department">قطاع شؤون الشركة</p>
+                </div>
+            </div>
+
+            <!-- YOU Logo Container - NOW USING LOCAL FILE PATH -->
+            <div class="you-logo-container mt-8">
+                <img src="YOU Logo.png" 
+                     alt="YOU Logo"
+                     onerror="this.onerror=null;this.src='https://placehold.co/80x40/ffcc4e/000000?text=Logo+Error';"
+                     />
+            </div>
+
+            <!-- Custom Curve SVG -->
+            <svg class="header-curve-svg" viewBox="0 0 100 40" preserveAspectRatio="none">
+                <path d="M0,0 C25,40 75,40 100,0 L100,40 L0,40 Z" fill="currentColor"/>
+            </svg>
+        </div>
+
+        <!-- Contact Details Section (White Background) -->
+        <div class="p-6 pt-4 space-y-4">
+            
+            <!-- Company & Location Section - Now fully RTL -->
+            <div class="space-y-3 text-right">
+                
+                <!-- Company Name with Icon -->
+                <div class="company-details-item">
+                    <!-- Lucide: Building Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-icon-color flex-shrink-0"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M10 12V8"/><path d="M14 12V8"/><path d="M10 16v-4"/><path d="M14 16v-4"/></svg>
+                    <p class="text-lg font-bold text-gray-800 flex-grow text-right" id="vcard-company">اليمنية العمانية المتحدة للاتصالات</p>
+                </div>
+
+                <!-- Location with Icon -->
+                <div class="company-details-item">
+                    <!-- Lucide: Map Pin Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <p class="text-base text-gray-700 flex-grow text-right" id="vcard-location">اليمن - صنعاء - حدة</p>
+                </div>
+            </div>
+            
+            <hr class="border-gray-200">
+
+            <!-- Primary Contact Links (LTR for numbers/emails) -->
+            <div class="space-y-3">
+                
+                <!-- Phone -->
+                <a id="vcard-phone-link" href="tel:+967733111125" class="icon-link">
+                    <!-- Lucide: Phone Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-icon-color"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span class="ltr-text font-semibold text-gray-700" id="vcard-phone-text">+967 733111125</span>
+                </a>
+
+                <!-- Email -->
+                <a id="vcard-email-link" href="mailto:ashahidi@you.com.ye" class="icon-link">
+                    <!-- Lucide: Mail Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-icon-color"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span class="ltr-text font-semibold text-gray-700 truncate" id="vcard-email-text">ashahidi@you.com.ye</span>
+                </a>
+                
+                <!-- Website -->
+                <a id="vcard-website-link" href="https://www.you.com.ye" target="_blank" rel="noopener noreferrer" class="icon-link">
+                    <!-- Lucide: Link Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-icon-color"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                    <span class="ltr-text font-semibold text-gray-700 truncate" id="vcard-website-text">www.you.com.ye</span>
+                </a>
+                
+            </div>
+        </div>
+        
+        <!-- CTA Footer: Download Button (Black) -->
+        <div class="p-4 bg-cta-black text-center text-white font-bold text-lg">
+            <button id="downloadVcf" class="w-full h-full bg-transparent border-none text-white font-bold text-base cursor-pointer">
+                اضغط لحفظ الاسم في قائمة أسماء الهاتف
+            </button>
+            <p id="message-box" class="text-center mt-3 text-sm text-red-300 opacity-0 transition-opacity duration-300">
+                <!-- Status messages here -->
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // --- VCF Download Logic (same as before) ---
+        const contactData = {
+            name: "علي محمد الشاحذي",
+            title: "مدير أول التواصل",
+            department: "قطاع شؤون الشركة",
+            company: "اليمنية العمانية المتحدة للاتصالات",
+            phone: "+967733111125",
+            email: "ashahidi@you.com.ye",
+            website: "https://www.you.com.ye",
+            address: "اليمن - صنعاء - حدة",
+        };
+        
+        const messageBox = document.getElementById('message-box');
+
+        function clean(value) {
+            return (value || "").replace(/\n/g, "\\n").trim();
+        }
+
+        function downloadVcf() {
+            try {
+                const vcfContent = `BEGIN:VCARD
+VERSION:3.0
+N:${clean(contactData.name)}
+FN:${clean(contactData.name)}
+ORG:${clean(contactData.company)}
+TITLE:${clean(contactData.title)} (${clean(contactData.department)})
+TEL;TYPE=WORK,VOICE:${clean(contactData.phone)}
+EMAIL;TYPE=PREF,INTERNET:${clean(contactData.email)}
+URL:${clean(contactData.website)}
+ADR;TYPE=WORK:;;;${clean(contactData.address)};;;
+END:VCARD`;
+
+                const blob = new Blob([vcfContent], { type: 'text/vcard;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Ali_Alshahidi_Contact.vcf`; 
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showMessage("تم تحميل بطاقة الاتصال بنجاح!", "text-green-300");
+
+            } catch (error) {
+                console.error("VCF Download Error:", error);
+                showMessage("فشل التحميل. يرجى مراجعة سجل الأخطاء (Console).", "text-red-300");
+            }
+        }
+        
+        function showMessage(message, colorClass) {
+            messageBox.textContent = message;
+            messageBox.className = `text-center mt-3 text-sm transition-opacity duration-300 ${colorClass}`;
+            messageBox.classList.remove('opacity-0');
+            messageBox.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100');
+                messageBox.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        document.getElementById('downloadVcf').addEventListener('click', downloadVcf);
+
+    </script>
+</body>
+</html>
